@@ -169,9 +169,9 @@ interface LanguageContextType {
 }
 
 export const LanguageContext = createContext<LanguageContextType>({
-  lang: "ar",
+  lang: "en",
   setLang: () => {},
-  t: translations.ar,
+  t: translations.en,
 });
 
 export function useLanguage() {
@@ -179,7 +179,7 @@ export function useLanguage() {
 }
 
 export function useLanguageState() {
-  const [lang, setLangState] = useState<Language>("ar");
+  const [lang, setLangState] = useState<Language>("en");
 
   useEffect(() => {
     document.documentElement.lang = lang;

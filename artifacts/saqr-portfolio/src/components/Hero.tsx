@@ -11,9 +11,9 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Animated gradient background orbs */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-15%] left-[-5%] w-[45%] h-[55%] rounded-full bg-primary/15 blur-[130px] animate-pulse" />
-        <div className="absolute bottom-[-15%] right-[-5%] w-[40%] h-[50%] rounded-full bg-blue-500/15 blur-[130px] animate-pulse" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-[40%] left-[50%] w-[25%] h-[30%] rounded-full bg-cyan-400/10 blur-[100px] animate-pulse" style={{ animationDelay: "4s" }} />
+        <div className="absolute top-[-15%] left-[-5%] w-[45%] h-[55%] rounded-full bg-primary/20 blur-[130px] animate-pulse" />
+        <div className="absolute bottom-[-15%] right-[-5%] w-[40%] h-[50%] rounded-full bg-secondary/15 blur-[130px] animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[40%] left-[50%] w-[25%] h-[30%] rounded-full bg-accent/10 blur-[100px] animate-pulse" style={{ animationDelay: "4s" }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -115,7 +115,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-8 left-0 lg:-left-4 glass-card px-4 py-2 rounded-xl text-cyan-400 font-mono text-sm border border-cyan-400/30 shadow-lg"
+              className="absolute bottom-8 left-0 lg:-left-4 glass-card px-4 py-2 rounded-xl text-secondary font-mono text-sm border border-secondary/30 shadow-lg"
             >
               system.optimize()
             </motion.div>

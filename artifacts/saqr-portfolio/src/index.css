@@ -64,7 +64,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
+
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
@@ -82,109 +82,77 @@
 :root {
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
-  --app-font-mono: Menlo, monospace;
-  --radius: .5rem; 
+  --app-font-mono: 'JetBrains Mono', Menlo, monospace;
+  --radius: .625rem;
 
-  /* Fallbacks that get overridden by .dark */
-  --background: 222 40% 7%;
-  --foreground: 210 40% 98%;
-  --border: 217 32% 17%;
-  --input: 217 32% 17%;
-  --ring: 190 100% 50%;
-  
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --card-border: 217 32% 17%;
-  
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
-  --popover-border: 217 32% 17%;
-  
-  --primary: 190 100% 50%;
-  --primary-foreground: 222 47% 11%;
-  --primary-border: 190 100% 40%;
-  
-  --secondary: 217 91% 60%;
-  --secondary-foreground: 210 40% 98%;
-  --secondary-border: 217 91% 50%;
-  
-  --muted: 217 32% 17%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --muted-border: 217 32% 20%;
-  
-  --accent: 25 95% 53%;
-  --accent-foreground: 210 40% 98%;
-  --accent-border: 25 95% 43%;
-  
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --destructive-border: 0 62.8% 20.6%;
-  
-  --chart-1: 190 100% 50%;
-  --chart-2: 217 91% 60%;
-  --chart-3: 25 95% 53%;
-  --chart-4: 160 60% 45%;
-  --chart-5: 340 75% 55%;
+  /* ============================================
+     PALETTE: Warm Gold + Soft Steel Blue
+     Inspired by: charcoal-gray suit, dark studio
+     Background → deep warm-charcoal
+     Primary    → warm gold   #D4A84B  (38 65% 56%)
+     Secondary  → soft steel  #5B8DB8  (210 42% 54%)
+     Muted text → cool silver #94A3B8
+  ============================================ */
 
-  --sidebar: 222 47% 11%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-border: 217 32% 17%;
-  --sidebar-primary: 190 100% 50%;
-  --sidebar-primary-foreground: 222 47% 11%;
-  --sidebar-accent: 217 32% 17%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-ring: 190 100% 50%;
-}
+  --background: 224 30% 6%;        /* #0D1018 — deep dark charcoal */
+  --foreground: 220 18% 95%;       /* #F0F2F5 — soft warm white */
 
-.dark {
-  --background: 222 40% 7%; /* #0B0F19 */
-  --foreground: 210 40% 98%;
-  --border: 217 32% 17%;
-  --input: 217 32% 17%;
-  --ring: 190 100% 50%; /* #00D4FF */
-  
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --card-border: 217 32% 17%;
-  
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
-  --popover-border: 217 32% 17%;
-  
-  --primary: 190 100% 50%;
-  --primary-foreground: 222 47% 11%;
-  --primary-border: 190 100% 40%;
-  
-  --secondary: 217 91% 60%; /* #3B82F6 */
-  --secondary-foreground: 210 40% 98%;
-  --secondary-border: 217 91% 50%;
-  
-  --muted: 217 32% 17%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --muted-border: 217 32% 20%;
-  
-  --accent: 25 95% 53%; /* #F97316 */
-  --accent-foreground: 210 40% 98%;
-  --accent-border: 25 95% 43%;
-  
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --destructive-border: 0 62.8% 20.6%;
+  --border: 220 18% 16%;           /* subtle dark border */
+  --input: 220 18% 16%;
+  --ring: 38 65% 56%;              /* gold ring */
 
-  --chart-1: 190 100% 50%;
-  --chart-2: 217 91% 60%;
-  --chart-3: 25 95% 53%;
-  --chart-4: 160 60% 45%;
-  --chart-5: 340 75% 55%;
+  --card: 222 28% 10%;             /* #141821 — slightly lighter than bg */
+  --card-foreground: 220 18% 95%;
+  --card-border: 220 18% 16%;
 
-  --sidebar: 222 47% 11%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-border: 217 32% 17%;
-  --sidebar-primary: 190 100% 50%;
-  --sidebar-primary-foreground: 222 47% 11%;
-  --sidebar-accent: 217 32% 17%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-ring: 190 100% 50%;
+  --popover: 222 28% 10%;
+  --popover-foreground: 220 18% 95%;
+  --popover-border: 220 18% 16%;
+
+  /* Primary = Warm Gold */
+  --primary: 38 65% 56%;           /* #D4A84B */
+  --primary-foreground: 224 30% 6%;
+  --primary-border: 38 65% 44%;
+
+  /* Secondary = Soft Steel Blue */
+  --secondary: 210 42% 54%;        /* #5B8DB8 */
+  --secondary-foreground: 220 18% 95%;
+  --secondary-border: 210 42% 42%;
+
+  --muted: 220 18% 14%;
+  --muted-foreground: 215 16% 55%; /* #8494A9 — readable cool silver */
+  --muted-border: 220 18% 18%;
+
+  /* Accent = deeper amber for highlights */
+  --accent: 32 80% 48%;            /* #D97706 */
+  --accent-foreground: 220 18% 95%;
+  --accent-border: 32 80% 36%;
+
+  --destructive: 0 62.8% 38%;
+  --destructive-foreground: 220 18% 95%;
+  --destructive-border: 0 62.8% 28%;
+
+  --chart-1: 38 65% 56%;
+  --chart-2: 210 42% 54%;
+  --chart-3: 32 80% 48%;
+  --chart-4: 160 50% 42%;
+  --chart-5: 340 60% 50%;
+
+  --sidebar: 222 28% 10%;
+  --sidebar-foreground: 220 18% 95%;
+  --sidebar-border: 220 18% 16%;
+  --sidebar-primary: 38 65% 56%;
+  --sidebar-primary-foreground: 224 30% 6%;
+  --sidebar-accent: 220 18% 14%;
+  --sidebar-accent-foreground: 220 18% 95%;
+  --sidebar-ring: 38 65% 56%;
+
+  /* Border computation */
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(255,255,255, .03);
+  --elevate-2: rgba(255,255,255, .07);
+  --button-outline: rgba(255,255,255, .08);
+  --badge-outline: rgba(255,255,255, .05);
 }
 
 html[dir="rtl"] {
@@ -197,14 +165,17 @@ html[dir="rtl"] {
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground;
+    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary;
   }
 }
 
+/* Glassmorphism card — warmer tint to match gold palette */
 .glass-card {
-  @apply bg-card/40 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl;
+  @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-2xl shadow-xl;
 }
 
+/* Gold gradient text */
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, hsl(38 65% 68%), hsl(210 42% 65%));
 }
