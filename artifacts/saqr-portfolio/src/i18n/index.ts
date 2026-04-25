@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 
 export const translations = {
   ar: {
@@ -160,14 +160,35 @@ export const translations = {
 };
 
 export type Language = "ar" | "en";
+export type Translations = typeof translations.ar;
+
+interface LanguageContextType {
+  lang: Language;
+  setLang: (lang: Language) => void;
+  t: Translations;
+}
+
+export const LanguageContext = createContext<LanguageContextType>({
+  lang: "ar",
+  setLang: () => {},
+  t: translations.ar,
+});
 
 export function useLanguage() {
-  const [lang, setLang] = useState<Language>("ar");
+  return useContext(LanguageContext);
+}
+
+export function useLanguageState() {
+  const [lang, setLangState] = useState<Language>("ar");
 
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }, [lang]);
+
+  const setLang = (newLang: Language) => {
+    setLangState(newLang);
+  };
 
   const t = translations[lang];
 
