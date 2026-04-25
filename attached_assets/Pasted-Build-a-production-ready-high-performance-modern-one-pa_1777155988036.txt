@@ -1,0 +1,242 @@
+Build a production-ready, high-performance, modern one-page personal portfolio website for a tech professional branded as "Saqr" (real name: Ibrahim Ahmed).
+
+========================
+PRIMARY GOAL
+========================
+Generate leads (clients) for:
+- IT Support
+- Automation (Python)
+- Tech Training
+
+The site must be optimized for conversion, speed, and mobile experience.
+
+========================
+TECH STACK
+========================
+- Next.js (App Router)
+- Tailwind CSS
+- Minimal JavaScript
+- Framer Motion (for light animations only)
+- No heavy 3D libraries
+
+========================
+LANGUAGE SUPPORT
+========================
+- Fully bilingual: Arabic (RTL) + English (LTR)
+- Default language: Arabic
+- Language toggle switch in navbar
+- Use structured JSON object for translations (easy to edit)
+
+========================
+DESIGN SYSTEM
+========================
+Style:
+- Minimal, premium, clean
+- Dark navy background (#0B0F19 or similar)
+- Soft gradient accents (blue / cyan / subtle orange)
+- Glassmorphism cards
+- Smooth shadows
+- Rounded corners (xl/2xl)
+
+Typography:
+- Modern sans-serif (e.g. Inter / Cairo for Arabic)
+- Clear hierarchy
+
+========================
+PERFORMANCE REQUIREMENTS
+========================
+- Lighthouse score 90+
+- Mobile-first
+- Lazy loading images
+- Optimized images (WebP)
+- No unnecessary libraries
+- Code splitting enabled
+
+========================
+SITE STRUCTURE (ONE PAGE)
+========================
+
+1) NAVBAR (Sticky)
+- Logo: SAQR
+- Links: Home, About, Services, Projects, Contact
+- Language toggle (AR / EN)
+- CTA button: "Hire Me"
+
+2) HERO SECTION
+- Left: Text
+- Right: Profile Image (I will provide image)
+
+Content:
+- Name: Saqr
+- Title:
+  "IT Support Specialist | Automation Expert | Tech Instructor"
+- Value proposition:
+  "I help businesses reduce downtime, automate workflows, and scale efficiently."
+
+Buttons:
+- Hire Me
+- Contact Me
+
+Effects:
+- Animated gradient background (lightweight)
+- Profile image inside a 3D-style card:
+    - Slight tilt on hover
+    - Glow effect
+    - Smooth entrance animation
+
+3) SOCIAL PROOF STRIP
+Display animated counters:
+- 16,000+ Students
+- 95% Client Satisfaction
+- -20% Downtime
+- +30% Response Speed
+- +32% Ads Performance Improvement
+
+4) ABOUT SECTION
+Short strong paragraph:
+- Problem solver
+- Automation mindset (Python)
+- Freelance experience
+- Teaching experience
+
+Highlight cards:
+- Problem Solving
+- Automation Thinking
+- Trainer & Mentor
+- Freelancer
+
+5) SERVICES SECTION
+3 cards:
+
+A) IT Support
+- Remote support
+- Network & systems
+- Reduce downtime
+
+B) Automation
+- Python scripts
+- Workflow automation
+- Save time & cost
+
+C) Tech Training
+- Live sessions
+- Mentorship
+- Practical teaching
+
+Each card:
+- Icon
+- Short description
+- Hover animation
+
+6) SKILLS SECTION
+Display as tags:
+- Networking (LAN/WAN)
+- Windows / Linux
+- Active Directory
+- VPN
+- Monitoring (Nagios, Zabbix)
+- Python
+- Microsoft Tools
+
+7) PROJECTS SECTION
+3 interactive cards:
+
+- Automation Scripts
+  "Reduced manual work by 25%"
+
+- Google Ads Optimization
+  "CTR: 2.1% → 4.7%, CPA reduced by 32%"
+
+- IT Infrastructure Management
+  "Managed multi-client systems"
+
+Hover effect:
+- Reveal more info
+
+8) TESTIMONIALS SECTION
+- Placeholder testimonial cards (ready for future real reviews)
+
+9) CONTACT SECTION (CRITICAL)
+- Clear CTA: "Ready to work together?"
+
+Buttons:
+- WhatsApp
+- Telegram
+- Email (copy to clipboard)
+
+NO complex forms
+
+10) FLOATING BUTTON
+Bottom right:
+- Contact button opens WhatsApp & Telegram
+
+11) FOOTER
+- Logo
+- Quick links
+- Social icons
+- Copyright
+
+========================
+CONFIGURATION SYSTEM
+========================
+Create a single config file:
+
+config/siteConfig.js
+
+Store:
+- WhatsApp link
+- Telegram link
+- Email
+- Text content (optional)
+
+This makes updates easy.
+
+========================
+IMAGE HANDLING
+========================
+- Use placeholder for profile image
+- Make it easy to replace
+- Apply:
+  - Rounded corners
+  - Soft shadow
+  - Hover tilt effect
+
+========================
+ANIMATIONS
+========================
+- Use Framer Motion
+- Section reveal on scroll
+- Smooth transitions
+- Keep animations lightweight
+
+========================
+UX RULES
+========================
+- Clear CTA everywhere
+- Fast interaction
+- No clutter
+- Focus on conversion
+
+========================
+SEO
+========================
+- Meta tags
+- OpenGraph
+- Proper headings
+
+========================
+IMPORTANT RULES
+========================
+- Do NOT overuse animations
+- Do NOT use heavy 3D engines
+- Keep code clean and modular
+- Ensure full responsiveness (especially mobile)
+- Optimize for real-world deployment
+
+========================
+FINAL OUTPUT
+========================
+- Complete working Next.js project
+- Clean folder structure
+- Ready to deploy
+- No missing dependencies
