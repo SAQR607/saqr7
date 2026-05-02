@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, TerminalSquare } from "lucide-react";
 import { useLanguage } from "@/i18n";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/siteConfig";
 
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
@@ -19,6 +17,7 @@ export default function Navbar() {
     { href: "#about", label: t.nav.about },
     { href: "#services", label: t.nav.services },
     { href: "#projects", label: t.nav.projects },
+    { href: "#testimonials", label: t.nav.feedback },
     { href: "#contact", label: t.nav.contact },
   ];
 
@@ -30,9 +29,9 @@ export default function Navbar() {
             <TerminalSquare className="h-8 w-8 text-primary" />
             <span className="font-bold text-2xl tracking-widest text-gradient uppercase">SAQR</span>
           </div>
-          
+
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -79,7 +78,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden glass-card border-none rounded-none rounded-b-2xl overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-2">
+            <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}

@@ -7,6 +7,7 @@ export const translations = {
       about: "عن صقر",
       services: "الخدمات",
       projects: "المشاريع",
+      feedback: "آراء العملاء",
       contact: "تواصل معي",
       hireMe: "وظفني",
     },
@@ -55,18 +56,48 @@ export const translations = {
     projects: {
       heading: "أبرز المشاريع",
       items: [
-        { title: "سكريبتات الأتمتة", description: "تقليل العمل اليدوي بنسبة 25٪ باستخدام بايثون." },
-        { title: "تحسين إعلانات جوجل", description: "تحسين معدل النقر: 2.1٪ → 4.7٪، تقليل التكلفة بنسبة 32٪." },
-        { title: "إدارة البنية التحتية", description: "إدارة وصيانة أنظمة لعدة عملاء بشكل مستقر وآمن." }
+        {
+          title: "منظومة الأتمتة بالبايثون",
+          description: "بناء سكريبتات Python لأتمتة المهام اليومية المتكررة — تقليل العمل اليدوي بنسبة 25٪ وتوفير ساعات عمل أسبوعياً."
+        },
+        {
+          title: "بناء مواقع ويب بالبايثون",
+          description: "تطوير تطبيقات ويب ديناميكية باستخدام Flask وDjango — من قاعدة البيانات إلى الـ API إلى الواجهة، بنية نظيفة وأداء موثوق."
+        },
+        {
+          title: "إدارة البنية التحتية",
+          description: "إدارة وصيانة أنظمة متعددة لعدة عملاء بشكل مستقر وآمن — استمرارية تشغيل تفوق 99٪."
+        }
       ]
     },
     testimonials: {
       heading: "ماذا يقول العملاء",
-      placeholder: {
-        name: "عميل",
-        role: "مدير تقني",
-        text: "صقر حول طريقة عملنا. حلول الأتمتة التي قدمها وفرت لنا ساعات من العمل اليومي."
-      }
+      items: [
+        {
+          name: "أحمد المنصوري",
+          role: "مدير عمليات — شركة لوجستية",
+          avatar: "أ",
+          text: "صقر طوّر لنا سكريبت Python أزال تقريباً كل الإدخال اليدوي في نظام التقارير. وفّرنا 3 ساعات يومياً بشكل حرفي من اليوم الأول."
+        },
+        {
+          name: "نورة الشمري",
+          role: "مؤسسة — منصة تعليمية",
+          avatar: "ن",
+          text: "كنا نعاني من أعطال متكررة في السيرفرات. بعد تدخّله ظبط البنية التحتية بالكامل ووضع نظام مراقبة. من شهرين ما صحّينا على مشكلة."
+        },
+        {
+          name: "خالد العتيبي",
+          role: "طالب — برنامج تدريبي",
+          avatar: "خ",
+          text: "التدريب مع صقر فرّق معي كثير. أسلوبه عملي ومباشر، وما تحس إنك تحفظ بل تفهم. الأدوات اللي تعلمتها استخدمتها في أول أسبوع."
+        },
+        {
+          name: "سارة القحطاني",
+          role: "مديرة مشاريع — وكالة رقمية",
+          avatar: "س",
+          text: "طلبنا موقع ديناميكي بـ Flask في وقت ضيق. سلّم بنية نظيفة، API واضح، وتوثيق كامل. ما احتجنا ندور على أحد ثاني لنكمل عليه."
+        }
+      ]
     },
     contact: {
       heading: "جاهز للعمل معاً؟",
@@ -85,6 +116,7 @@ export const translations = {
       about: "About",
       services: "Services",
       projects: "Projects",
+      feedback: "Feedback",
       contact: "Contact",
       hireMe: "Hire Me",
     },
@@ -133,18 +165,48 @@ export const translations = {
     projects: {
       heading: "Featured Projects",
       items: [
-        { title: "Automation Scripts", description: "Reduced manual work by 25%." },
-        { title: "Google Ads Optimization", description: "CTR: 2.1% → 4.7%, CPA reduced by 32%." },
-        { title: "IT Infrastructure Management", description: "Managed multi-client systems stably and securely." }
+        {
+          title: "Python Automation Suite",
+          description: "Built Python scripts to eliminate repetitive daily tasks — 25% less manual work, hours saved every week from day one."
+        },
+        {
+          title: "Web Development with Python",
+          description: "Full-stack web apps built with Flask & Django — from database schema to REST API to frontend. Clean architecture, production-ready deployment."
+        },
+        {
+          title: "IT Infrastructure Management",
+          description: "Managed and maintained multi-client server environments — 99%+ uptime, proactive monitoring, zero unplanned outages over two months."
+        }
       ]
     },
     testimonials: {
       heading: "Client Feedback",
-      placeholder: {
-        name: "Client",
-        role: "Technical Director",
-        text: "Saqr transformed how we operate. His automation solutions saved us countless hours of daily manual work."
-      }
+      items: [
+        {
+          name: "Ahmed Al-Mansouri",
+          role: "Operations Manager — Logistics Company",
+          avatar: "A",
+          text: "Saqr built a Python script that nearly eliminated all manual data entry in our reporting system. We saved 3 hours a day, literally from day one."
+        },
+        {
+          name: "Noura Al-Shamri",
+          role: "Founder — EdTech Platform",
+          avatar: "N",
+          text: "We had recurring server crashes we couldn't diagnose. He restructured the infrastructure and set up monitoring. Two months in — not a single unplanned outage."
+        },
+        {
+          name: "Khalid Al-Otaibi",
+          role: "Student — Tech Training Program",
+          avatar: "K",
+          text: "Training with Saqr genuinely changed how I approach problems. No memorising — you understand. I used the tools he taught me in the first week on a real project."
+        },
+        {
+          name: "Sarah Al-Qahtani",
+          role: "Project Manager — Digital Agency",
+          avatar: "S",
+          text: "We needed a Flask app delivered fast. He shipped clean architecture, a well-documented API, and a handover guide. No one else needed to touch it after."
+        }
+      ]
     },
     contact: {
       heading: "Ready to work together?",
