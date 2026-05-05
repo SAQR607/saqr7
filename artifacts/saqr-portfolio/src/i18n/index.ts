@@ -102,7 +102,7 @@ export const translations = {
     contact: {
       heading: "جاهز للعمل معاً؟",
       whatsappBtn: "واتساب",
-      telegramBtn: "تيليجرام",
+      linkedinBtn: "لينكدإن",
       emailBtn: "البريد الإلكتروني",
       emailCopied: "تم النسخ!",
     },
@@ -211,7 +211,7 @@ export const translations = {
     contact: {
       heading: "Ready to work together?",
       whatsappBtn: "WhatsApp",
-      telegramBtn: "Telegram",
+      linkedinBtn: "LinkedIn",
       emailBtn: "Email",
       emailCopied: "Copied!",
     },

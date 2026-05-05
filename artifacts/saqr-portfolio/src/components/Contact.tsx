@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
 import { siteConfig } from "@/config/siteConfig";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle, Send } from "lucide-react";
+import { Mail, MessageCircle, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
@@ -45,12 +45,12 @@ export default function Contact() {
             
             <Button 
               size="lg" 
-              className="rounded-full bg-[#0088cc] hover:bg-[#0088cc]/90 text-white h-14 px-8 text-lg w-full sm:w-auto"
+              className="rounded-full bg-[#0A66C2] hover:bg-[#0A66C2]/90 text-white h-14 px-8 text-lg w-full sm:w-auto"
               asChild
             >
-              <a href={siteConfig.telegram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <Send className="w-6 h-6" />
-                {t.contact.telegramBtn}
+              <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <Linkedin className="w-6 h-6" />
+                {t.contact.linkedinBtn}
               </a>
             </Button>
 
