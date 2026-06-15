@@ -1,0 +1,136 @@
+You are updating an existing website for a tech professional brand.
+
+Goal:
+Reposition the website as a premium Web Development and Automation Systems studio, not as a general IT support site.
+
+Primary brand focus:
+- Custom websites
+- Web applications
+- Landing pages
+- Dashboards and admin panels
+- Business automation systems
+- Workflow automation
+- API integrations
+- Database-driven platforms
+- Performance optimization
+- UI/UX design for conversion
+
+Secondary services:
+- IT support and technical help should remain available, but visually minimized.
+- Do not remove support completely.
+- Move it to footer, help center, or secondary navigation only.
+- Do not make support the main brand message.
+
+Main messaging requirements:
+- The homepage must immediately communicate: build websites, automate processes, and solve business problems.
+- Use a Problem → Impact → Solution structure.
+- Every major section should answer:
+  1. What problem does the client have?
+  2. What does that problem cost them?
+  3. What system or website solves it?
+  4. What result does the client get?
+
+Tone and style:
+- Premium
+- Direct
+- Technical
+- Trustworthy
+- Conversion-focused
+- Clear, not vague
+- No hype
+- No manipulative or deceptive tactics
+- Use persuasive copy, but stay honest and transparent
+
+Homepage structure:
+1. Hero section
+   - Strong headline about building websites and automation systems
+   - Subheadline focused on business outcomes
+   - Primary CTA: Book a consultation / Request a project
+   - Secondary CTA: View projects
+
+2. Services section
+   - Web Development
+   - Automation Systems
+   - Dashboards / Admin Panels
+   - Landing Pages
+   - API Integrations
+   - Performance & UX Optimization
+
+3. Problem/Solution section
+   - Show common business pain points
+   - Show how the site or system fixes them
+   - Use short, sharp copy
+
+4. Featured projects / case studies
+   - Present projects as real solutions
+   - Use format:
+     Problem
+     Solution
+     Result
+
+5. Automation section
+   - Show examples of workflows and systems
+   - Make it clear the focus is productized systems, not generic support
+
+6. Testimonials or proof
+   - Add trust signals
+   - Keep them believable and specific
+
+7. FAQ
+   - Answer objections about timeline, cost, process, and maintenance
+
+8. Final CTA
+   - Strong closing section with action-oriented copy
+
+Navigation:
+- Home
+- Services
+- Projects
+- About
+- Contact
+- Support should be moved to a secondary menu or footer only
+
+Design direction:
+- Modern, clean, premium, and technical
+- Strong visual hierarchy
+- High contrast typography
+- Sections with clear spacing
+- Cards for services and projects
+- Professional iconography
+- Responsive on mobile first
+- Fast-loading and SEO-friendly
+
+Content rules:
+- Replace generic IT support positioning with business growth and system-building positioning.
+- Remove training emphasis from the main homepage.
+- Reduce any language that makes the brand look like a help desk.
+- Use outcome-driven copy:
+  - increase efficiency
+  - reduce manual work
+  - improve conversions
+  - centralize operations
+  - deliver scalable systems
+
+SEO focus:
+- web development
+- automation systems
+- business automation
+- custom websites
+- dashboard development
+- API integration
+- workflow automation
+- landing pages
+- performance optimization
+
+Important:
+- Do not use fake urgency, fake scarcity, misleading claims, or psychological manipulation.
+- Use ethical persuasion based on clarity, authority, proof, and problem solving.
+- The site should feel like a high-end development and automation partner, not a support page.
+
+Deliverables:
+- Rewrite homepage copy
+- Reorder navigation
+- Rebuild section hierarchy
+- Minimize support visibility
+- Emphasize development and automation
+- Add problem-solution framing across the entire site
