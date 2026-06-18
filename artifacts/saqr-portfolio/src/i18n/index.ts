@@ -22,7 +22,7 @@ export const translations = {
     stats: {
       heading: "أرقام تتحدث",
       projects: "مشروع منجز",
-      clients: "عميل",
+      clients: "عميل راضٍ",
       experience: "سنوات خبرة",
       onTime: "التزام بالمواعيد",
     },
@@ -50,7 +50,7 @@ export const translations = {
       filterAll: "الكل",
       filterAppDev: "تطوير تطبيقات",
       filterAutomation: "أتمتة",
-      viewBtn: "عرض المشروع",
+      viewBtn: "أريد مشروعاً مثله",
       items: [
         {
           title: "تطبيق إدارة المخزون",
@@ -61,6 +61,22 @@ export const translations = {
           category: "appDev",
         },
         {
+          title: "تطبيق حجز مواعيد مع لوحة تحكم",
+          titleEn: "Appointment Booking App + Dashboard",
+          description:
+            "بنيت تطبيق ويب لعيادة يتيح للمرضى الحجز أونلاين، مع لوحة تحكم إدارية تعرض الجداول اليومية وتاريخ المرضى وتذكيرات SMS تلقائية.",
+          tags: ["Python", "FastAPI", "Vue.js", "Twilio SMS", "MySQL"],
+          category: "appDev",
+        },
+        {
+          title: "تطبيق تتبع مصاريف الفريق",
+          titleEn: "Team Expense Tracker App",
+          description:
+            "طوّرت تطبيق ويب لشركة ناشئة لتسجيل ومراجعة مصاريف الفريق مع صلاحيات متعددة (موظف / مدير / CFO) وتقارير شهرية بصيغة Excel.",
+          tags: ["Python", "Flask", "Bootstrap", "Chart.js", "SQLAlchemy"],
+          category: "appDev",
+        },
+        {
           title: "بوت تلجرام لإدارة الطلبات",
           titleEn: "Telegram Order Management Bot",
           description:
@@ -68,39 +84,15 @@ export const translations = {
           tags: ["Python", "Telegram Bot API", "SQLite", "Async"],
           category: "automation",
         },
-        {
-          title: "تطبيق حجز مواعيد مع لوحة تحكم",
-          titleEn: "Appointment Booking App + Dashboard",
-          description:
-            "بنيت تطبيق ويب لعيادة يتيح للمرضى الحجز أونلاين، مع لوحة تحكم إدارية تعرض الجداول اليومية وتاريخ المرضى وتذكيرات SMS.",
-          tags: ["Python", "FastAPI", "Vue.js", "Twilio SMS", "MySQL"],
-          category: "appDev",
-        },
-        {
-          title: "نظام أتمتة التقارير الأسبوعية",
-          titleEn: "Weekly Reports Automation System",
-          description:
-            "أتمتة توليد وإرسال تقارير الأداء الأسبوعية لشركة لوجستية — يسحب البيانات من 3 مصادر، يولّد ملفات PDF/Excel بالهوية البصرية، ويرسلها كل أحد الساعة 8 صباحاً.",
-          tags: ["Python", "Pandas", "OpenPyXL", "ReportLab", "SMTP", "Cron"],
-          category: "automation",
-        },
-        {
-          title: "تطبيق تتبع مصاريف الفريق",
-          titleEn: "Team Expense Tracker App",
-          description:
-            "طوّرت تطبيق ويب لشركة ناشئة لتسجيل ومراجعة مصاريف الفريق مع صلاحيات متعددة (موظف / مدير / CFO) وتصدير شهري إلى Excel.",
-          tags: ["Python", "Flask", "Bootstrap", "Chart.js", "SQLAlchemy"],
-          category: "appDev",
-        },
-        {
-          title: "سكريبت أتمتة سوشيال ميديا",
-          titleEn: "Social Media Automation Script",
-          description:
-            "بنيت أداة Python تجدول وتنشر المحتوى على انستجرام وتويتر/X من ملف Excel بسيط، مع تغيير أحجام الصور وتنسيق التسميات التوضيحية تلقائياً.",
-          tags: ["Python", "Selenium", "Instagrapi", "Tweepy", "Pillow"],
-          category: "automation",
-        },
       ],
+    },
+    cta: {
+      badge: "ابدأ مشروعك اليوم",
+      heading: "فكرة في رأسك؟\nنحوّلها لمشروع حقيقي",
+      subheading: "تواصل الآن — ورد عليك خلال ساعة في أوقات العمل.",
+      primaryBtn: "ابدأ على واتساب الآن",
+      secondaryBtn: "أرسل تفاصيل المشروع",
+      note: "استشارة أولى مجانية · بدون أي التزام",
     },
     testimonials: {
       heading: "ماذا يقول العملاء",
@@ -109,19 +101,19 @@ export const translations = {
           name: "محمد الغامدي",
           role: "صاحب مطعم — الرياض",
           avatar: "م",
-          text: "الحل اللي بناه صقر لإدارة الطلبات على تلجرام غيّر شكل شغلنا كلياً. كنا نتلقى الطلبات يدوياً وكانت تضيع وتتداخل — الحين الطلب يوصل وينتهي تلقائياً. وفّر علينا وقت وأخطاء ما تحتسب.",
+          text: "الحل اللي بناه صقر لإدارة الطلبات على تلجرام غيّر شكل شغلنا كلياً. كنا نتلقى الطلبات يدوياً وكانت تضيع وتتداخل — الحين الطلب يوصل وينتهي تلقائياً.",
         },
         {
           name: "ريم العمري",
           role: "مديرة عيادة أسنان — جدة",
           avatar: "ر",
-          text: "قبل التطبيق كنا نعتمد على الهاتف والدفتر وكانت الأغلاط تسبب إحراجات مع المرضى. الحين عندنا نظام واضح، التذكيرات تنزل تلقائياً، واللوحة تعطيني صورة كاملة عن اليوم من أول دقيقة.",
+          text: "قبل التطبيق كنا نعتمد على الهاتف والدفتر وكانت الأغلاط تسبب إحراجات مع المرضى. الحين عندنا نظام واضح، التذكيرات تنزل تلقائياً، واللوحة تعطيني صورة كاملة عن اليوم.",
         },
         {
           name: "سعد الحربي",
           role: "مدير عمليات — شركة لوجستية",
           avatar: "س",
-          text: "الموظف اللي كان يصرف يومه في تجميع التقارير الأسبوعية انصرف لشغل أهم. صقر بنى نظام يجمع البيانات من أنظمتنا الثلاثة، يولّد التقرير PDF، ويرسله كل أحد الساعة 8. دقيق وما يخطئ.",
+          text: "الموظف اللي كان يصرف يومه في تجميع التقارير الأسبوعية انصرف لشغل أهم. صقر بنى نظام يجمع البيانات ويولّد التقرير PDF ويرسله كل أحد الساعة 8. دقيق وما يخطئ.",
         },
       ],
     },
@@ -178,27 +170,20 @@ export const translations = {
       supportLabel: "دعم فني؟",
       supportLink: "تواصل عبر البريد",
     },
-    // Stubs for unused sections (kept for TypeScript compatibility)
+    // Stubs for unused components (TypeScript compatibility)
     about: {
       heading: "عن صقر",
       paragraph: "",
       cards: {
-        builder: { title: "", desc: "" },
+        builder:    { title: "", desc: "" },
         automation: { title: "", desc: "" },
-        results: { title: "", desc: "" },
-        partner: { title: "", desc: "" },
+        results:    { title: "", desc: "" },
+        partner:    { title: "", desc: "" },
       },
     },
-    skills: { heading: "المهارات" },
-    problems: {
-      heading: "",
-      subheading: "",
-      items: [] as Array<{ problem: string; solution: string }>,
-    },
-    faq: {
-      heading: "",
-      items: [] as Array<{ q: string; a: string }>,
-    },
+    skills:   { heading: "" },
+    problems: { heading: "", subheading: "", items: [] as Array<{ problem: string; solution: string }> },
+    faq:      { heading: "", items: [] as Array<{ q: string; a: string }> },
   },
 
   en: {
@@ -222,7 +207,7 @@ export const translations = {
     stats: {
       heading: "Numbers That Speak",
       projects: "Projects Delivered",
-      clients: "Clients",
+      clients: "Happy Clients",
       experience: "Years Experience",
       onTime: "On-time Delivery",
     },
@@ -250,7 +235,7 @@ export const translations = {
       filterAll: "All",
       filterAppDev: "App Development",
       filterAutomation: "Automation",
-      viewBtn: "View Project",
+      viewBtn: "I Want Something Like This",
       items: [
         {
           title: "Inventory Management App",
@@ -261,6 +246,22 @@ export const translations = {
           category: "appDev",
         },
         {
+          title: "Appointment Booking App + Dashboard",
+          titleEn: "Appointment Booking App + Dashboard",
+          description:
+            "Built a web app for a clinic allowing patients to book online, with a full admin dashboard showing daily schedules, patient history, and automatic SMS reminders.",
+          tags: ["Python", "FastAPI", "Vue.js", "Twilio SMS", "MySQL"],
+          category: "appDev",
+        },
+        {
+          title: "Team Expense Tracker App",
+          titleEn: "Team Expense Tracker App",
+          description:
+            "Developed a web app for a startup to log, categorize, and approve team expenses with role-based access (employee / manager / CFO) and monthly Excel exports.",
+          tags: ["Python", "Flask", "Bootstrap", "Chart.js", "SQLAlchemy"],
+          category: "appDev",
+        },
+        {
           title: "Telegram Order Management Bot",
           titleEn: "Telegram Order Management Bot",
           description:
@@ -268,39 +269,15 @@ export const translations = {
           tags: ["Python", "Telegram Bot API", "SQLite", "Async"],
           category: "automation",
         },
-        {
-          title: "Appointment Booking App + Dashboard",
-          titleEn: "Appointment Booking App + Dashboard",
-          description:
-            "Built a web app for a clinic allowing patients to book online, with a full admin dashboard showing daily schedules, patient history, and SMS reminders.",
-          tags: ["Python", "FastAPI", "Vue.js", "Twilio SMS", "MySQL"],
-          category: "appDev",
-        },
-        {
-          title: "Weekly Reports Automation System",
-          titleEn: "Weekly Reports Automation System",
-          description:
-            "Automated weekly performance report generation for a logistics company — pulling from 3 data sources, generating branded PDF/Excel, emailing every Sunday at 8 AM.",
-          tags: ["Python", "Pandas", "OpenPyXL", "ReportLab", "SMTP", "Cron"],
-          category: "automation",
-        },
-        {
-          title: "Team Expense Tracker App",
-          titleEn: "Team Expense Tracker App",
-          description:
-            "Developed a mobile-friendly web app for a startup to log, categorize, and approve team expenses with role-based access (employee / manager / CFO) and monthly Excel export.",
-          tags: ["Python", "Flask", "Bootstrap", "Chart.js", "SQLAlchemy"],
-          category: "appDev",
-        },
-        {
-          title: "Social Media Automation Script",
-          titleEn: "Social Media Automation Script",
-          description:
-            "Built a Python tool that schedules and publishes posts to Instagram and Twitter/X from a simple Excel sheet, with auto-resizing images and caption formatting.",
-          tags: ["Python", "Selenium", "Instagrapi", "Tweepy", "Pillow"],
-          category: "automation",
-        },
       ],
+    },
+    cta: {
+      badge: "Start Your Project Today",
+      heading: "Got an Idea?\nLet's Build It Together",
+      subheading: "Reach out now — I reply within an hour during business hours.",
+      primaryBtn: "Start on WhatsApp Now",
+      secondaryBtn: "Send Project Details",
+      note: "Free initial consultation · No commitment required",
     },
     testimonials: {
       heading: "Client Feedback",
@@ -309,19 +286,19 @@ export const translations = {
           name: "Mohammed Al-Ghamdi",
           role: "Restaurant Owner — Riyadh",
           avatar: "M",
-          text: "The Telegram order management system Saqr built completely changed how we operate. Orders used to get lost or overlap — now everything runs automatically. Saved us countless hours and errors.",
+          text: "The Telegram order management system Saqr built completely changed how we operate. Orders used to get lost or overlap — now everything runs automatically.",
         },
         {
           name: "Reem Al-Omari",
           role: "Dental Clinic Manager — Jeddah",
           avatar: "R",
-          text: "Before the app we relied on phone calls and a paper book — mistakes caused embarrassing situations with patients. Now we have a clear booking system, automatic reminders, and a full daily overview from the first minute.",
+          text: "Before the app we relied on phone calls and a paper book — mistakes caused embarrassing situations with patients. Now we have a clear booking system with automatic reminders.",
         },
         {
           name: "Saad Al-Harbi",
           role: "Operations Manager — Logistics Company",
           avatar: "S",
-          text: "The employee who used to spend his whole day compiling weekly reports now focuses on real work. Saqr built a system that pulls data from our three sources, generates a branded PDF, and sends it every Sunday at 8 AM. Accurate every time.",
+          text: "The employee who spent his whole day compiling weekly reports now focuses on real work. Saqr's system pulls data, generates a branded PDF, and sends it every Sunday at 8 AM. Accurate every time.",
         },
       ],
     },
@@ -347,7 +324,7 @@ export const translations = {
         "🔄 Other",
       ],
       descLabel: "Project Description",
-      descPlaceholder: "Briefly describe your project — what problem do you want to solve, and what outcome do you expect?",
+      descPlaceholder: "Briefly describe your project — what problem do you want to solve and what outcome do you expect?",
       budgetLabel: "Approximate Budget (optional)",
       budgetPlaceholder: "Select budget...",
       budgets: [
@@ -382,22 +359,15 @@ export const translations = {
       heading: "About Saqr",
       paragraph: "",
       cards: {
-        builder: { title: "", desc: "" },
+        builder:    { title: "", desc: "" },
         automation: { title: "", desc: "" },
-        results: { title: "", desc: "" },
-        partner: { title: "", desc: "" },
+        results:    { title: "", desc: "" },
+        partner:    { title: "", desc: "" },
       },
     },
-    skills: { heading: "Skills" },
-    problems: {
-      heading: "",
-      subheading: "",
-      items: [] as Array<{ problem: string; solution: string }>,
-    },
-    faq: {
-      heading: "",
-      items: [] as Array<{ q: string; a: string }>,
-    },
+    skills:   { heading: "" },
+    problems: { heading: "", subheading: "", items: [] as Array<{ problem: string; solution: string }> },
+    faq:      { heading: "", items: [] as Array<{ q: string; a: string }> },
   },
 };
 
@@ -428,10 +398,7 @@ export function useLanguageState() {
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }, [lang]);
 
-  const setLang = (newLang: Language) => {
-    setLangState(newLang);
-  };
-
+  const setLang = (newLang: Language) => setLangState(newLang);
   const t = translations[lang];
 
   return { lang, setLang, t };

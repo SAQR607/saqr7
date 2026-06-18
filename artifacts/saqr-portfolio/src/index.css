@@ -169,9 +169,14 @@ html[dir="rtl"] {
   }
 }
 
-/* Glassmorphism card — warmer tint to match gold palette */
+/* Glassmorphism card — warmer tint, reduced blur for lighter feel */
 .glass-card {
-  @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] rounded-2xl shadow-xl;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Gold gradient text */

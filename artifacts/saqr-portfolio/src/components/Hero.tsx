@@ -10,11 +10,10 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background orbs */}
+      {/* Lighter background — single soft orb */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-15%] left-[-5%] w-[45%] h-[55%] rounded-full bg-primary/20 blur-[130px] animate-pulse" />
-        <div className="absolute bottom-[-15%] right-[-5%] w-[40%] h-[50%] rounded-full bg-secondary/15 blur-[130px] animate-pulse" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-[40%] left-[50%] w-[25%] h-[30%] rounded-full bg-accent/10 blur-[100px] animate-pulse" style={{ animationDelay: "4s" }} />
+        <div className="absolute top-[-10%] end-[-5%] w-[50%] h-[60%] rounded-full bg-primary/12 blur-[90px]" />
+        <div className="absolute bottom-[-10%] start-[-5%] w-[40%] h-[45%] rounded-full bg-secondary/10 blur-[80px]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -22,13 +21,13 @@ export default function Hero() {
 
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
             className="flex flex-col gap-6 order-2 lg:order-1"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 w-fit">
-              <span className="h-2 w-2 rounded-full bg-primary animate-ping" />
+              <span className="h-2 w-2 rounded-full bg-primary" />
               <span className="text-sm font-medium text-primary">{t.hero.badge}</span>
             </div>
 
@@ -74,46 +73,47 @@ export default function Hero() {
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             className="relative flex justify-center items-center order-1 lg:order-2"
           >
-            <motion.div
-              className="relative"
-              whileHover={{ rotateY: isRtl ? 3 : -3, rotateX: 2, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
-            >
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/30 via-blue-500/20 to-cyan-400/20 blur-2xl opacity-70" />
-              <div className="relative w-64 sm:w-72 lg:w-80 overflow-hidden rounded-3xl border border-white/10 shadow-2xl" style={{ aspectRatio: "3/4" }}>
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0B0F19]/60 via-transparent to-transparent pointer-events-none rounded-3xl" />
+            <div className="relative">
+              {/* Subtle glow */}
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-primary/20 to-secondary/10 blur-xl opacity-60" />
+
+              <div
+                className="relative w-64 sm:w-72 lg:w-80 overflow-hidden rounded-3xl border border-white/10 shadow-2xl"
+                style={{ aspectRatio: "3/4" }}
+              >
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0D1018]/60 via-transparent to-transparent pointer-events-none rounded-3xl" />
                 <img
                   src="/profile.png"
                   alt={t.hero.name}
                   className="w-full h-full object-cover object-top"
                   loading="eager"
                   onError={(e) => {
-                    e.currentTarget.src = "https://ui-avatars.com/api/?name=Saqr&background=0B0F19&color=D4A84B&size=512";
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=Saqr&background=141821&color=D4A84B&size=512`;
                   }}
                 />
               </div>
-            </motion.div>
 
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute top-4 end-0 lg:-end-4 glass-card px-4 py-2 rounded-xl text-primary font-mono text-sm border border-primary/30 shadow-lg"
-            >
-              build.app()
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-8 start-0 lg:-start-4 glass-card px-4 py-2 rounded-xl text-secondary font-mono text-sm border border-secondary/30 shadow-lg"
-            >
-              automate.now()
-            </motion.div>
+              {/* Floating badges — static, no loop animation for lighter feel */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                className="absolute top-4 end-0 lg:-end-4 glass-card px-4 py-2 rounded-xl text-primary font-mono text-sm border border-primary/30"
+              >
+                build.app()
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.5 }}
+                className="absolute bottom-8 start-0 lg:-start-4 glass-card px-4 py-2 rounded-xl text-secondary font-mono text-sm border border-secondary/30"
+              >
+                automate.now()
+              </motion.div>
+            </div>
           </motion.div>
 
         </div>
