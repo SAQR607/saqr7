@@ -8,28 +8,24 @@ export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleLanguage = () => {
-    setLang(lang === "ar" ? "en" : "ar");
-  };
-
   const navLinks = [
-    { href: "#home", label: t.nav.home },
+    { href: "#home",     label: t.nav.home },
     { href: "#services", label: t.nav.services },
     { href: "#projects", label: t.nav.projects },
-    { href: "#about", label: t.nav.about },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#contact",  label: t.nav.contact },
   ];
 
   return (
     <header className="fixed top-0 w-full z-50 glass-card border-x-0 border-t-0 rounded-none rounded-b-2xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          {/* Brand */}
           <div className="flex-shrink-0 flex items-center gap-2">
             <TerminalSquare className="h-8 w-8 text-primary" />
             <span className="font-bold text-2xl tracking-widest text-gradient uppercase">SAQR</span>
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
@@ -42,20 +38,31 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={toggleLanguage} className="rounded-full">
-              <Globe className="h-5 w-5" />
-              <span className="sr-only">Toggle language</span>
+          <div className="hidden md:flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+              className="rounded-full text-muted-foreground hover:text-primary gap-1.5 px-3"
+            >
+              <Globe className="h-4 w-4" />
+              <span className="text-xs font-semibold tracking-wide">{lang === "ar" ? "EN" : "عربي"}</span>
             </Button>
             <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
               <a href="#contact">{t.nav.hireMe}</a>
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile toggle */}
           <div className="md:hidden flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={toggleLanguage} className="rounded-full">
-              <Globe className="h-5 w-5" />
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+              className="rounded-full text-muted-foreground px-2"
+            >
+              <Globe className="h-4 w-4" />
+              <span className="text-xs font-semibold ms-1">{lang === "ar" ? "EN" : "ع"}</span>
             </Button>
             <Button
               variant="ghost"
@@ -68,7 +75,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

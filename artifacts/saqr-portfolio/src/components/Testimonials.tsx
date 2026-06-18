@@ -12,51 +12,38 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t.testimonials.heading}
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.testimonials.heading}</h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {t.testimonials.items.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {t.testimonials.items.map((item, i) => (
             <motion.div
-              key={index}
+              key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.12 }}
+              transition={{ delay: i * 0.12 }}
               className="glass-card p-7 rounded-3xl border border-white/8 relative flex flex-col gap-5 hover:border-primary/20 transition-colors duration-300"
             >
-              {/* Quote icon */}
-              <Quote className="w-8 h-8 text-primary/20 absolute top-6 end-6" />
+              <Quote className="w-7 h-7 text-primary/15 absolute top-5 end-5" />
 
-              {/* Stars */}
               <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-primary text-primary"
-                  />
+                {Array.from({ length: 5 }).map((_, s) => (
+                  <Star key={s} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
 
-              {/* Quote text */}
-              <p className="text-base leading-relaxed text-foreground/80 flex-1">
-                "{item.text}"
-              </p>
+              <p className="text-sm leading-relaxed text-foreground/80 flex-1">"{item.text}"</p>
 
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-lg font-bold text-white shrink-0">
+              <div className="flex items-center gap-3 pt-3 border-t border-white/5">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-base font-bold text-white shrink-0">
                   {item.avatar}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm text-foreground">
-                    {item.name}
-                  </h4>
+                  <p className="font-semibold text-sm text-foreground">{item.name}</p>
                   <p className="text-xs text-muted-foreground">{item.role}</p>
                 </div>
               </div>

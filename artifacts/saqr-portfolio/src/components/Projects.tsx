@@ -1,19 +1,29 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n";
-import { Zap, Globe, Server } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const icons = [Zap, Globe, Server];
-const badgeColors = [
-  "bg-primary/15 text-primary border-primary/25",
-  "bg-secondary/15 text-secondary border-secondary/25",
-  "bg-white/10 text-foreground/70 border-white/15",
-];
+const categoryColors: Record<string, string> = {
+  appDev: "bg-primary/15 text-primary border-primary/30",
+  automation: "bg-secondary/15 text-secondary border-secondary/30",
+};
 
 export default function Projects() {
   const { t } = useLanguage();
+  const [filter, setFilter] = useState<"all" | "appDev" | "automation">("all");
+
+  const filters = [
+    { key: "all" as const,       label: t.projects.filterAll },
+    { key: "appDev" as const,    label: t.projects.filterAppDev },
+    { key: "automation" as const, label: t.projects.filterAutomation },
+  ];
+
+  const visible = t.projects.items.filter(
+    (p) => filter === "all" || p.category === filter
+  );
 
   return (
-    <section id="projects" className="py-24 relative bg-black/20">
+    <section id="projects" className="py-24 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,60 +33,81 @@ export default function Projects() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.projects.heading}</h2>
           <div className="w-24 h-1 bg-secondary mx-auto rounded-full mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            {t.projects.subheading}
-          </p>
+          <p className="text-muted-foreground max-w-xl mx-auto text-lg">{t.projects.subheading}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-14">
-          {t.projects.items.map((project, index) => {
-            const Icon = icons[index % icons.length];
-            return (
+        {/* Filter bar */}
+        <div className="flex justify-center gap-3 mt-10 mb-12 flex-wrap">
+          {filters.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setFilter(f.key)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+                filter === f.key
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "border-white/15 text-muted-foreground hover:text-foreground hover:border-white/30 glass-card"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
+            {visible.map((project, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.12 }}
+                key={project.title}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ delay: i * 0.07 }}
                 className="glass-card rounded-3xl border border-white/8 hover:border-primary/25 transition-colors duration-300 overflow-hidden flex flex-col"
               >
-                {/* Header */}
-                <div className="p-6 border-b border-white/5 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full border mb-2 ${badgeColors[index % badgeColors.length]}`}>
-                      {project.badge}
-                    </span>
-                    <h3 className="text-lg font-bold text-foreground leading-snug">{project.title}</h3>
-                  </div>
+                {/* Card header */}
+                <div className="p-6 border-b border-white/5">
+                  <span
+                    className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full border mb-3 ${
+                      categoryColors[project.category] ?? "bg-white/10 text-foreground/70 border-white/15"
+                    }`}
+                  >
+                    {project.category === "appDev" ? t.projects.filterAppDev : t.projects.filterAutomation}
+                  </span>
+                  <h3 className="text-lg font-bold text-foreground leading-snug">{project.title}</h3>
                 </div>
 
-                {/* Case study rows */}
-                <div className="flex flex-col flex-1 divide-y divide-white/5">
-                  <div className="p-5">
-                    <p className="text-xs font-semibold text-red-400/80 uppercase tracking-widest mb-1.5">
-                      {t.projects.labels.problem}
-                    </p>
-                    <p className="text-sm text-foreground/65 leading-relaxed">{project.problem}</p>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-xs font-semibold text-secondary uppercase tracking-widest mb-1.5">
-                      {t.projects.labels.solution}
-                    </p>
-                    <p className="text-sm text-foreground/80 leading-relaxed">{project.solution}</p>
-                  </div>
-                  <div className="p-5 bg-primary/5">
-                    <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-1.5">
-                      {t.projects.labels.result}
-                    </p>
-                    <p className="text-sm text-foreground font-medium leading-relaxed">{project.result}</p>
-                  </div>
+                {/* Description */}
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                </div>
+
+                {/* Tags */}
+                <div className="px-6 pb-4 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-foreground/60 border border-white/8"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="px-6 pb-6">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full rounded-full border-white/15 hover:border-primary/40 hover:text-primary glass-card transition-all"
+                  >
+                    <a href="#contact">{t.projects.viewBtn}</a>
+                  </Button>
                 </div>
               </motion.div>
-            );
-          })}
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>

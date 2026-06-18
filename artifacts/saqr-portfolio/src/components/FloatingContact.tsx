@@ -1,64 +1,59 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Linkedin, X, MessageSquarePlus } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
+import { useLanguage } from "@/i18n";
 
 export default function FloatingContact() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { lang } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const tooltip = lang === "ar" ? "تواصل الآن" : "Chat now";
 
   useEffect(() => {
-    const handleScroll = () => setIsVisible(window.scrollY > 300);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handle = () => setIsVisible(window.scrollY > 300);
+    window.addEventListener("scroll", handle);
+    return () => window.removeEventListener("scroll", handle);
   }, []);
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0, opacity: 0 }}
+          className="fixed bottom-6 end-6 z-50 flex flex-col items-end gap-2"
+        >
+          {/* Tooltip */}
           <AnimatePresence>
-            {isOpen && (
+            {showTooltip && (
               <motion.div
-                initial={{ opacity: 0, y: 16, scale: 0.85 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 16, scale: 0.85 }}
-                className="flex flex-col gap-3"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 4 }}
+                className="glass-card px-3 py-1.5 rounded-full text-xs font-semibold text-foreground border border-white/10 whitespace-nowrap shadow-lg"
               >
-                <a
-                  href={siteConfig.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-[#25D366] text-white w-12 h-12 rounded-full shadow-lg hover:scale-110 transition-transform"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-                <a
-                  href={siteConfig.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-[#0A66C2] text-white w-12 h-12 rounded-full shadow-lg hover:scale-110 transition-transform"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
+                {tooltip}
               </motion.div>
             )}
           </AnimatePresence>
 
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
+          {/* WhatsApp button */}
+          <motion.a
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setIsOpen(!isOpen)}
-            className="bg-primary text-primary-foreground w-14 h-14 rounded-full shadow-[0_0_20px_rgba(212,168,75,0.4)] flex items-center justify-center"
+            whileTap={{ scale: 0.95 }}
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_4px_24px_rgba(37,211,102,0.4)] text-white"
+            aria-label={tooltip}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <MessageSquarePlus className="w-6 h-6" />}
-          </motion.button>
-        </div>
+            <MessageCircle className="w-7 h-7" />
+          </motion.a>
+        </motion.div>
       )}
     </AnimatePresence>
   );

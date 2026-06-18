@@ -1,0 +1,190 @@
+You are an expert web developer and UX designer. I need you to redesign and update my personal tech portfolio website (saqr7.tech) which belongs to "Saqr" — a tech professional specializing in App Development and Automation. 
+
+---
+
+## 🌐 LANGUAGE & DIRECTION
+- The **default/opening language must be Arabic (RTL layout)**
+- All hero sections, headings, CTAs, and navigation must be in Arabic by default
+- Add an **English / عربي toggle button** in the top navigation for language switching
+- Use Arabic-friendly fonts: Cairo or Tajawal from Google Fonts
+- Full RTL support: `dir="rtl"` on the `<html>` tag and throughout all Arabic content
+
+---
+
+## 🎨 DESIGN STYLE
+- Modern, dark-themed portfolio (dark navy #0d1117 or #0f0f1a background with electric blue #00aaff or gold #f5a623 accents)
+- Clean and professional — targeting real clients: businesses, startups, and individuals
+- Smooth scroll animations using AOS library or pure CSS keyframes
+- Fully responsive, mobile-first
+- Arabic hero tagline: **"أحوّل أفكارك إلى تطبيقات وأنظمة تعمل بشكل تلقائي"**
+- Subheadline: **"مطور تطبيقات وأتمتة — أبني لك الحلول التقنية التي توفر وقتك وترفع كفاءتك"**
+
+---
+
+## 📁 REAL PROJECTS SECTION — Focus: App Development & Automation ONLY
+
+Add a **"مشاريعي"** section with **6 project cards**, each containing:
+- Project title in Arabic + English
+- Problem solved + what was built
+- Technologies as tags/badges
+- A "عرض المشروع" button
+- A category badge
+
+### The 6 Projects:
+
+**1. تطبيق إدارة المخزون** (Inventory Management App)
+- Built a full-stack web app for a retail store to track stock levels in real time, auto-generate low-stock alerts, and produce monthly inventory reports — replacing their manual Excel process entirely
+- Tags: Python, Django, PostgreSQL, React, REST API
+- Category: تطوير تطبيقات
+
+**2. بوت تلجرام لإدارة الطلبات** (Telegram Order Management Bot)
+- Developed a Telegram bot for a food business that receives orders, notifies the team, tracks order status, and sends automated delivery updates to customers — handling 200+ orders/day
+- Tags: Python, Telegram Bot API, SQLite, Async
+- Category: أتمتة
+
+**3. تطبيق حجز مواعيد مع لوحة تحكم** (Appointment Booking App + Dashboard)
+- Built a web app for a clinic allowing patients to book appointments online, with a full admin dashboard showing daily schedules, patient history, and SMS reminders
+- Tags: Python, FastAPI, Vue.js, Twilio SMS, MySQL
+- Category: تطوير تطبيقات
+
+**4. نظام أتمتة التقارير الأسبوعية** (Weekly Reports Automation System)
+- Automated the generation and delivery of weekly performance reports for a logistics company — pulling data from 3 sources, generating branded PDF/Excel files, and emailing them every Sunday at 8 AM
+- Tags: Python, Pandas, OpenPyXL, ReportLab, SMTP, Cron
+- Category: أتمتة
+
+**5. تطبيق تتبع مصاريف الفريق** (Team Expense Tracker App)
+- Developed a mobile-friendly web app for a startup to log, categorize, and approve team expenses with role-based access (employee / manager / CFO) and monthly export to Excel
+- Tags: Python, Flask, Bootstrap, Chart.js, SQLAlchemy
+- Category: تطوير تطبيقات
+
+**6. سكريبت أتمتة سوشيال ميديا** (Social Media Automation Script)
+- Built a Python automation tool that schedules and publishes posts to Instagram and Twitter/X from a simple Excel sheet, with auto-resizing images and caption formatting
+- Tags: Python, Selenium, Instagrapi, Tweepy, Pillow
+- Category: أتمتة
+
+### Filter Bar Above Projects:
+- الكل (All)
+- تطوير تطبيقات (App Development)
+- أتمتة (Automation)
+
+---
+
+## 📬 CONTACT FORM — Connected to Telegram Bot
+
+The form must send all submissions directly to a **Telegram Bot** using the Telegram Bot API.
+
+### Telegram Integration:
+```javascript
+const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";
+const TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE";
+
+async function sendToTelegram(formData) {
+  const message = `
+🔔 *طلب عميل جديد!*
+━━━━━━━━━━━━━━━
+👤 *الاسم:* ${formData.name}
+📧 *البريد:* ${formData.email}
+📱 *واتساب:* ${formData.whatsapp || "لم يُذكر"}
+🗂️ *نوع المشروع:* ${formData.projectType}
+📝 *الوصف:* ${formData.description}
+💰 *الميزانية:* ${formData.budget || "لم تُحدد"}
+⏰ *موعد البدء:* ${formData.startTime || "لم يُحدد"}
+━━━━━━━━━━━━━━━
+🕐 ${new Date().toLocaleString("ar-SA")}
+  `;
+
+  await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: message,
+      parse_mode: "Markdown"
+    })
+  });
+}
+```
+
+### Form Fields:
+
+1. **الاسم الكامل*** — Full Name (required)
+2. **البريد الإلكتروني*** — Email (required)
+3. **رقم الواتساب** — WhatsApp Number (optional) with WhatsApp icon
+4. **نوع المشروع*** — Project Type (required, select dropdown):
+   - اختر نوع المشروع...
+   - 📱 تطوير تطبيق ويب (Web App Development)
+   - 🤖 أتمتة وسكريبتات (Automation & Scripts)
+   - 🛒 متجر إلكتروني (E-Commerce App)
+   - 🤖 بوت تلجرام أو واتساب (Telegram / WhatsApp Bot)
+   - 📊 تحليل بيانات وتقارير تلقائية (Data Analysis & Automated Reports)
+   - 🔗 تكامل API وربط أنظمة (API Integration & System Linking)
+   - 💡 استشارة تقنية (Tech Consultation)
+   - 🔄 أخرى (Other)
+
+5. **وصف المشروع*** — Project Description (textarea, required):
+   - Placeholder: "اشرح مشروعك باختصار — ما المشكلة التي تريد حلها، وما الذي تتوقع الحصول عليه؟"
+
+6. **الميزانية التقريبية** — Approximate Budget in SAR (optional, select):
+   - أفضل عدم ذكر الميزانية
+   - أقل من 500 ريال
+   - 500 – 1,500 ريال
+   - 1,500 – 5,000 ريال
+   - 5,000 – 15,000 ريال
+   - أكثر من 15,000 ريال
+
+7. **متى تريد البدء؟** — When to Start? (optional, select):
+   - في أقرب وقت (ASAP)
+   - خلال أسبوعين
+   - الشهر القادم
+   - لم أحدد بعد
+
+### Form Submit Behavior:
+- On click, validate fields with Arabic error messages
+- Show loading spinner: "جاري الإرسال..."
+- On success: green checkmark + message: **"✅ تم الإرسال! سأتواصل معك خلال 24 ساعة"**
+- On error: red message: **"❌ حدث خطأ، حاول مرة أخرى أو تواصل عبر واتساب"**
+- Do NOT reload the page on submit
+
+---
+
+## 🧭 NAVIGATION
+- الرئيسية
+- خدماتي
+- مشاريعي
+- تواصل معي
+- [EN / عربي toggle]
+
+---
+
+## 🏆 SERVICES SECTION
+Two focused service cards:
+
+**1. 📱 تطوير التطبيقات**
+"أبني تطبيقات ويب احترافية مخصصة لعملك — من لوحات التحكم إلى المتاجر والمنصات الكاملة"
+Stack: Python, Django, FastAPI, React, Vue
+
+**2. 🤖 الأتمتة والبوتات**
+"أحوّل المهام المتكررة إلى عمليات تلقائية — بوتات تلجرام، سكريبتات، وتكامل أنظمة"
+Stack: Python, Telegram Bot API, Selenium, APIs
+
+Each card has a CTA button → scrolls to contact form
+
+---
+
+## 📌 ADDITIONAL SECTIONS
+- **"أرقام تتحدث"** counter section: +15 مشروع، +10 عميل، +3 سنوات خبرة، 100% التزام بالمواعيد
+- **3 Arabic client testimonials** (realistic, related to apps and automation)
+- **Floating WhatsApp button** (bottom right): `https://wa.me/YOUR_NUMBER` with tooltip "تواصل الآن"
+
+---
+
+## ⚙️ TECHNICAL REQUIREMENTS
+- Single file: pure HTML + CSS + JavaScript (no backend needed — Telegram API handles delivery)
+- Google Fonts: Cairo
+- AOS.js for scroll animations
+- Form uses `fetch()` to call Telegram Bot API directly from the browser
+- `<html lang="ar" dir="rtl">`
+- Replace `YOUR_BOT_TOKEN_HERE` and `YOUR_CHAT_ID_HERE` with clear comments showing where to insert values
+- Meta description in Arabic for SEO
+
+Please generate the complete, production-ready single-file HTML code.
