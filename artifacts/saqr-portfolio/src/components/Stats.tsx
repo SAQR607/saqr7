@@ -31,8 +31,8 @@ export default function Stats() {
   const isRtl = lang === "ar";
 
   const stats = [
-    { icon: FolderOpen, value: 30, prefix: "+", suffix: "", label: t.stats.projects, color: "text-primary" },
-    { icon: Users,      value: 20, prefix: "+", suffix: "", label: t.stats.clients,  color: "text-secondary" },
+    { icon: FolderOpen, value: 50, prefix: "+", suffix: "", label: t.stats.projects, color: "text-primary" },
+    { icon: Users,      value: 35, prefix: "+", suffix: "", label: t.stats.clients,  color: "text-secondary" },
     { icon: Award,      value: 3,  prefix: "+", suffix: "", label: t.stats.experience, color: "text-primary" },
     { icon: CalendarCheck, value: 100, prefix: "", suffix: "%", label: t.stats.onTime, color: "text-secondary" },
   ];

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, TerminalSquare } from "lucide-react";
 import { useLanguage } from "@/i18n";
@@ -7,6 +7,34 @@ import { Button } from "@/components/ui/button";
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const diff = currentY - lastScrollY.current;
+
+      // Always show within first 80px
+      if (currentY < 80) {
+        setVisible(true);
+      } else if (diff > 6) {
+        // Scrolling down → hide
+        setVisible(false);
+        setIsMobileMenuOpen(false);
+      } else if (diff < -4) {
+        // Scrolling up → show
+        setVisible(true);
+      }
+
+      setScrolled(currentY > 20);
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { href: "#home",     label: t.nav.home },
@@ -16,13 +44,28 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-card border-x-0 border-t-0 rounded-none rounded-b-2xl">
+    <motion.header
+      animate={{ y: visible ? 0 : "-110%" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className={`fixed top-0 w-full z-50 rounded-none transition-all duration-300 ${
+        scrolled
+          ? "border-b border-white/8 shadow-xl"
+          : "border-b border-transparent"
+      }`}
+      style={{
+        background: scrolled
+          ? "rgba(13, 16, 24, 0.88)"
+          : "rgba(13, 16, 24, 0.55)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-18">
           {/* Brand */}
           <div className="flex-shrink-0 flex items-center gap-2">
-            <TerminalSquare className="h-8 w-8 text-primary" />
-            <span className="font-bold text-2xl tracking-widest text-gradient uppercase">SAQR</span>
+            <TerminalSquare className="h-7 w-7 text-primary" />
+            <span className="font-bold text-xl tracking-widest text-gradient uppercase">SAQR</span>
           </div>
 
           {/* Desktop nav */}
@@ -48,7 +91,7 @@ export default function Navbar() {
               <Globe className="h-4 w-4" />
               <span className="text-xs font-semibold tracking-wide">{lang === "ar" ? "EN" : "عربي"}</span>
             </Button>
-            <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm px-5 h-9">
               <a href="#contact">{t.nav.hireMe}</a>
             </Button>
           </div>
@@ -82,7 +125,13 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-card border-none rounded-none rounded-b-2xl overflow-hidden"
+            className="md:hidden overflow-hidden"
+            style={{
+              background: "rgba(13, 16, 24, 0.95)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              borderTop: "1px solid rgba(255,255,255,0.07)",
+            }}
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
@@ -104,6 +153,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
