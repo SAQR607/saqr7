@@ -1,0 +1,368 @@
+You are performing a complete redesign and content consolidation of the existing website. The project has evolved significantly and the website no longer reflects its current capabilities. Do not build a new project from scratch. Refactor and modernize the existing project while preserving all working functionality.
+
+## Primary Objective
+
+Create a modern, premium, technically-focused website that accurately represents the full scope of my expertise instead of focusing on only one area.
+
+The website must present me as a combination of:
+
+* Security Specialist
+* Software Engineer
+* Automation Architect
+* AI Systems Builder
+* Technical Consultant
+* Technical Instructor / Educator
+* Enterprise Solution Designer
+* Infrastructure & Backend Developer
+
+The visitor should immediately understand that I build complete technical solutions, automate complex business workflows, teach advanced technical topics, and provide professional consulting.
+
+---
+
+## Design System
+
+Use HeroUI as the complete design foundation.
+
+Design Reference:
+https://github.com/heroui-inc/heroui
+
+Requirements:
+
+* Replace the existing UI with HeroUI components wherever appropriate.
+* Use a modern enterprise SaaS appearance.
+* Premium visual quality.
+* Excellent spacing.
+* Consistent typography.
+* High-end animations (subtle only).
+* Strong accessibility.
+* Responsive across all devices.
+* Dark mode first.
+* Light mode optional.
+
+---
+
+## Complete Color System Redesign
+
+Replace the current color palette entirely.
+
+The new colors should communicate:
+
+* Intelligence
+* Trust
+* Security
+* Innovation
+* Professionalism
+* Modern AI
+* Enterprise Software
+
+Avoid bright random gradients.
+
+Prefer colors similar to:
+
+* Deep Navy
+* Midnight Blue
+* Indigo
+* Slate
+* Cyan accents
+* Electric Blue highlights
+
+Use semantic colors consistently.
+
+---
+
+## Language
+
+The default language of the entire website must be English.
+
+Everything should be written in professional native-level English.
+
+Any future localization should be easy to implement through an internationalization structure.
+
+---
+
+## Content Consolidation
+
+Merge every existing section into one consistent professional identity.
+
+The website should naturally combine:
+
+### Cyber Security
+
+* Security Research
+* Secure Architecture
+* Application Security
+* Infrastructure Security
+* Best Practices
+* Security Consulting
+
+---
+
+### Software Development
+
+* Backend Development
+* Full Stack Development
+* API Development
+* Database Design
+* System Architecture
+* Performance Optimization
+
+---
+
+### AI Engineering
+
+* AI Integrations
+* AI Agents
+* LLM Applications
+* AI Automation
+* Custom AI Systems
+* Business AI Solutions
+
+---
+
+### Automation
+
+Show extensive experience with automation platforms including:
+
+* n8n
+* Activepieces
+* Workflow Automation
+* CRM Automation
+* Lead Generation Automation
+* Marketing Automation
+* Business Process Automation
+* API Integration
+* Custom Automation Systems
+
+The automation section should become one of the strongest sections of the website.
+
+---
+
+### Technical Education
+
+Present me as an instructor capable of teaching advanced technical subjects.
+
+Include areas such as:
+
+* Programming
+* Security
+* AI
+* Automation
+* Backend Development
+* APIs
+* Databases
+* Real-world Project Building
+* Enterprise Architecture
+
+This section should emphasize practical implementation instead of theory.
+
+---
+
+### Consulting
+
+Create a professional consulting section covering:
+
+* Technical Consulting
+* Architecture Reviews
+* Digital Transformation
+* Automation Consulting
+* Security Consulting
+* AI Adoption
+* Startup Technical Strategy
+* Enterprise Solutions
+
+---
+
+## Homepage
+
+Completely redesign the homepage.
+
+It should immediately communicate:
+
+"I design, secure, automate, and teach modern software systems."
+
+Include:
+
+* Strong hero section
+* Professional introduction
+* Core expertise
+* Featured services
+* Technical capabilities
+* Featured projects
+* Automation showcase
+* AI showcase
+* Teaching section
+* Consulting section
+* Call-to-action
+
+Everything should flow naturally.
+
+---
+
+## Portfolio
+
+Completely modernize the portfolio.
+
+Projects should be categorized.
+
+Possible categories:
+
+* Security
+* AI
+* Automation
+* SaaS
+* Backend
+* APIs
+* Enterprise
+* Cloud
+* Internal Tools
+
+Each project should have:
+
+* Overview
+* Technologies
+* Challenges
+* Solution
+* Outcome
+
+---
+
+## Skills
+
+Replace any simple skill list with categorized expertise.
+
+Examples:
+
+Programming
+
+Backend
+
+Frontend
+
+Databases
+
+Cloud
+
+DevOps
+
+Security
+
+AI
+
+Automation
+
+Architecture
+
+Infrastructure
+
+Teaching
+
+Consulting
+
+---
+
+## Services
+
+Create premium service cards for:
+
+* Custom Software Development
+* AI Solutions
+* Workflow Automation
+* API Development
+* Security Consulting
+* Technical Training
+* Enterprise Architecture
+* Technical Audits
+* System Modernization
+* Digital Transformation
+
+---
+
+## User Experience
+
+Improve every interaction.
+
+Requirements:
+
+* Better navigation
+* Smooth scrolling
+* Better hierarchy
+* Better spacing
+* Faster loading
+* Modern cards
+* Better typography
+* Improved responsiveness
+* Professional micro-interactions
+* Improved accessibility
+
+---
+
+## Technical Improvements
+
+Refactor the project where necessary.
+
+Improve:
+
+* Component organization
+* Reusability
+* Folder structure
+* Performance
+* SEO
+* Metadata
+* Open Graph
+* Structured Data
+* Image optimization
+* Lazy loading
+* Accessibility
+* Code quality
+* Maintainability
+
+---
+
+## SEO
+
+Rewrite all metadata.
+
+Optimize for keywords related to:
+
+* Software Engineer
+* Security Consultant
+* AI Engineer
+* Automation Expert
+* Technical Instructor
+* Backend Developer
+* API Development
+* Workflow Automation
+* Enterprise Solutions
+
+Generate improved:
+
+* Titles
+* Descriptions
+* Open Graph metadata
+* Twitter Cards
+* Structured Schema
+
+---
+
+## Visual Identity
+
+The entire website should communicate:
+
+* Premium
+* Technical
+* Modern
+* Enterprise-grade
+* Intelligent
+* Trustworthy
+* Minimal
+* Professional
+
+Avoid generic portfolio aesthetics.
+
+The website should feel closer to a modern enterprise technology company than a freelance portfolio.
+
+---
+
+## Final Goal
+
+Produce a cohesive website where every page consistently reinforces a unified professional identity across software engineering, cybersecurity, AI systems, automation, enterprise architecture, technical consulting, and advanced technical education. Preserve all existing functionality while modernizing the visual design, content hierarchy, user experience, branding, and technical architecture into a polished, enterprise-grade platform.

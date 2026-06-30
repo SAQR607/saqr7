@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
+import Expertise from "@/components/Expertise";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
@@ -20,8 +22,10 @@ export default function Home() {
         <main className="flex-1 w-full">
           <Hero />
           <Stats />
+          <Expertise />
           <Services />
           <Projects />
+          <Skills />
           <Testimonials />
           <CTA />
           <Contact />

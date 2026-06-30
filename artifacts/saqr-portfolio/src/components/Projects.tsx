@@ -1,39 +1,32 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
 import { Button } from "@/components/ui/button";
-import { Package, CalendarDays, DollarSign, Bot } from "lucide-react";
+import { Brain, Zap, Server, Shield, type LucideIcon } from "lucide-react";
 
-// Visual config per project (matches the 4 items in i18n)
-const cardVisuals = [
-  {
-    gradient: "from-blue-700/40 via-blue-600/20 to-cyan-600/10",
-    icon: Package,
-    dot: "bg-blue-400",
-  },
-  {
-    gradient: "from-emerald-700/40 via-emerald-600/20 to-teal-600/10",
-    icon: CalendarDays,
-    dot: "bg-emerald-400",
-  },
-  {
-    gradient: "from-violet-700/40 via-violet-600/20 to-purple-600/10",
-    icon: DollarSign,
-    dot: "bg-violet-400",
-  },
-  {
-    gradient: "from-sky-700/40 via-sky-600/20 to-indigo-600/10",
-    icon: Bot,
-    dot: "bg-sky-400",
-  },
-];
+type CategoryKey = "AI" | "Automation" | "Backend" | "Security";
 
-const categoryColors: Record<string, string> = {
-  appDev:     "bg-primary/15 text-primary border-primary/30",
-  automation: "bg-secondary/15 text-secondary border-secondary/30",
+const categoryConfig: Record<CategoryKey, {
+  gradient: string;
+  dot: string;
+  icon: LucideIcon;
+  badgeClass: string;
+}> = {
+  AI:         { gradient: "from-violet-900/60 to-purple-800/20",  dot: "bg-violet-400",  icon: Brain,  badgeClass: "bg-violet-500/15 text-violet-300 border-violet-500/30" },
+  Automation: { gradient: "from-sky-900/60 to-cyan-800/20",       dot: "bg-sky-400",     icon: Zap,    badgeClass: "bg-sky-500/15 text-sky-300 border-sky-500/30" },
+  Backend:    { gradient: "from-emerald-900/60 to-teal-800/20",   dot: "bg-emerald-400", icon: Server, badgeClass: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30" },
+  Security:   { gradient: "from-amber-900/60 to-orange-800/20",   dot: "bg-amber-400",   icon: Shield, badgeClass: "bg-amber-500/15 text-amber-300 border-amber-500/30" },
 };
 
 export default function Projects() {
   const { t } = useLanguage();
+
+  const getCategoryLabel = (cat: string) => {
+    if (cat === "AI") return t.projects.filterAI;
+    if (cat === "Automation") return t.projects.filterAutomation;
+    if (cat === "Security") return t.projects.filterSecurity;
+    if (cat === "Backend") return t.projects.filterBackend;
+    return cat;
+  };
 
   return (
     <section id="projects" className="py-24 relative">
@@ -42,16 +35,23 @@ export default function Projects() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-4"
+          className="text-center mb-16"
         >
+          <span className="text-xs font-bold uppercase tracking-widest text-accent mb-3 block">
+            Case Studies
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.projects.heading}</h2>
-          <div className="w-24 h-1 bg-secondary mx-auto rounded-full mb-6" />
-          <p className="text-muted-foreground max-w-xl mx-auto text-lg">{t.projects.subheading}</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
+            {t.projects.subheading}
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {t.projects.items.map((project, i) => {
-            const visual = cardVisuals[i] ?? cardVisuals[0];
+            const cat = (project.category as CategoryKey) in categoryConfig
+              ? (project.category as CategoryKey)
+              : "Backend";
+            const visual = categoryConfig[cat];
             const Icon = visual.icon;
 
             return (
@@ -60,52 +60,55 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.09 }}
-                className="glass-card rounded-3xl border border-white/8 hover:border-primary/20 transition-colors duration-300 overflow-hidden flex flex-col"
+                transition={{ delay: i * 0.08 }}
+                className="glass-card rounded-2xl border border-white/6 hover:border-white/12 transition-colors duration-300 overflow-hidden flex flex-col"
               >
-                {/* Visual header — app preview mockup */}
-                <div className={`relative h-36 bg-gradient-to-br ${visual.gradient} flex items-center justify-center overflow-hidden`}>
-                  {/* Browser chrome dots */}
+                {/* Visual header */}
+                <div className={`relative h-32 bg-gradient-to-br ${visual.gradient} flex items-center justify-center overflow-hidden`}>
+                  {/* Browser dots */}
                   <div className="absolute top-3.5 start-4 flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                    <div className="w-2 h-2 rounded-full bg-white/12" />
+                    <div className="w-2 h-2 rounded-full bg-white/12" />
+                    <div className="w-2 h-2 rounded-full bg-white/12" />
                   </div>
 
-                  {/* Center icon — large, faint */}
-                  <Icon className="w-16 h-16 text-white/20" strokeWidth={1} />
+                  <Icon className="w-14 h-14 text-white/15" strokeWidth={1} />
 
-                  {/* Fake content lines at bottom */}
+                  {/* Faint content lines */}
                   <div className="absolute bottom-3.5 start-4 end-4 space-y-1.5">
-                    <div className="h-1.5 bg-white/10 rounded-full w-3/4" />
-                    <div className="h-1.5 bg-white/10 rounded-full w-1/2" />
-                    <div className="h-1.5 bg-white/8 rounded-full w-2/3" />
+                    <div className="h-1 bg-white/8 rounded-full w-3/4" />
+                    <div className="h-1 bg-white/8 rounded-full w-1/2" />
                   </div>
 
-                  {/* Live dot */}
-                  <div className={`absolute top-3.5 end-4 flex items-center gap-1.5`}>
-                    <div className={`w-2 h-2 rounded-full ${visual.dot}`} />
-                    <span className="text-[10px] text-white/40 font-mono">live</span>
+                  {/* Live dot + category */}
+                  <div className="absolute top-3 end-4">
+                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${visual.badgeClass}`}>
+                      {getCategoryLabel(project.category)}
+                    </span>
                   </div>
                 </div>
 
                 {/* Card body */}
                 <div className="p-6 flex flex-col gap-4 flex-1">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-lg font-bold text-foreground leading-snug flex-1">{project.title}</h3>
-                    <span className={`shrink-0 text-xs font-semibold px-2.5 py-0.5 rounded-full border ${categoryColors[project.category] ?? "bg-white/10 text-foreground/60 border-white/15"}`}>
-                      {project.category === "appDev" ? t.projects.filterAppDev : t.projects.filterAutomation}
-                    </span>
+                  <div>
+                    <h3 className="text-base font-bold text-foreground mb-2 leading-snug">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">{project.description}</p>
+                  {/* Outcome metric */}
+                  {"outcome" in project && project.outcome && (
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/3 border border-white/6">
+                      <div className={`w-1.5 h-1.5 rounded-full ${visual.dot}`} />
+                      <span className="text-xs font-semibold text-foreground/70">{project.outcome as string}</span>
+                    </div>
+                  )}
 
                   {/* Tech tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-foreground/55 border border-white/8"
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/4 text-muted-foreground/60 border border-white/6"
                       >
                         {tag}
                       </span>
@@ -115,7 +118,8 @@ export default function Projects() {
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full rounded-full border-white/12 hover:border-primary/40 hover:text-primary glass-card transition-all mt-auto"
+                    size="sm"
+                    className="rounded-full border-white/10 hover:border-primary/40 hover:text-primary transition-all mt-auto text-xs"
                   >
                     <a href="#contact">{t.projects.viewBtn}</a>
                   </Button>
