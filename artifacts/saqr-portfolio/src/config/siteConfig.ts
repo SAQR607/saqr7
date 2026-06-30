@@ -9,6 +9,8 @@ export const siteConfig = {
   // Set these in your Vercel / Replit environment variables:
   //   VITE_TELEGRAM_BOT_TOKEN=7xxxxxxxxx:AAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   //   VITE_TELEGRAM_CHAT_ID=123456789
-  telegramBotToken: import.meta.env.VITE_TELEGRAM_BOT_TOKEN ?? "",
-  telegramChatId: import.meta.env.VITE_TELEGRAM_CHAT_ID ?? "",
+  telegramBotToken:
+    import.meta.env.VITE_TELEGRAM_BOT_TOKEN ??
+    "8888997856:AAELxk8TtopV2IyCzgywShkn9DHHXVqJnLI",
+  telegramChatId: import.meta.env.VITE_TELEGRAM_CHAT_ID ?? "1840535062",
 };

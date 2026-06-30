@@ -44,7 +44,7 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.services.items.map((service, i) => {
             const Icon = iconMap[service.icon] ?? Layers;
             const iconStyle = iconStyles[i] ?? iconStyles[0];
