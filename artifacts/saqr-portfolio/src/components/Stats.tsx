@@ -2,9 +2,21 @@ import { useEffect, useState, useRef } from "react";
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
-import { FolderOpen, Users, Award, CalendarCheck, GraduationCap } from "lucide-react";
+import {
+  FolderOpen,
+  Users,
+  Award,
+  CalendarCheck,
+  GraduationCap,
+} from "lucide-react";
 
-function AnimatedCounter({ to, duration = 1.8 }: { to: number; duration?: number }) {
+function AnimatedCounter({
+  to,
+  duration = 1.8,
+}: {
+  to: number;
+  duration?: number;
+}) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
@@ -30,11 +42,51 @@ export default function Stats() {
   const isRtl = lang === "ar";
 
   const stats = [
-    { icon: FolderOpen,    value: 50,  prefix: "+", suffix: "", label: t.stats.projects,   color: "text-primary",   highlight: false },
-    { icon: GraduationCap, value: 500, prefix: "+", suffix: "", label: t.stats.students,   color: "text-primary",   highlight: true  },
-    { icon: Users,         value: 35,  prefix: "+", suffix: "", label: t.stats.clients,    color: "text-secondary", highlight: false },
-    { icon: Award,         value: 3,   prefix: "+", suffix: "", label: t.stats.experience, color: "text-secondary", highlight: false },
-    { icon: CalendarCheck, value: 100, prefix: "",  suffix: "%", label: t.stats.onTime,   color: "text-secondary", highlight: false },
+    {
+      icon: FolderOpen,
+      value: 62,
+      prefix: "+",
+      suffix: "",
+      label: t.stats.projects,
+      color: "text-primary",
+      highlight: false,
+    },
+    {
+      icon: GraduationCap,
+      value: 16290,
+      prefix: "+",
+      suffix: "",
+      label: t.stats.students,
+      color: "text-primary",
+      highlight: true,
+    },
+    {
+      icon: Users,
+      value: 53,
+      prefix: "+",
+      suffix: "",
+      label: t.stats.clients,
+      color: "text-secondary",
+      highlight: false,
+    },
+    {
+      icon: Award,
+      value: 3,
+      prefix: "+",
+      suffix: "",
+      label: t.stats.experience,
+      color: "text-secondary",
+      highlight: false,
+    },
+    {
+      icon: CalendarCheck,
+      value: 100,
+      prefix: "",
+      suffix: "%",
+      label: t.stats.onTime,
+      color: "text-secondary",
+      highlight: false,
+    },
   ];
 
   return (
@@ -58,7 +110,9 @@ export default function Stats() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.45 }}
               className={`flex flex-col items-center text-center py-2 ${
-                i !== 0 ? (isRtl ? "sm:border-r" : "sm:border-l") + " border-white/5" : ""
+                i !== 0
+                  ? (isRtl ? "sm:border-r" : "sm:border-l") + " border-white/5"
+                  : ""
               } ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
             >
               <stat.icon className={`w-5 h-5 ${stat.color} mb-3 opacity-70`} />
@@ -73,9 +127,11 @@ export default function Stats() {
                 <AnimatedCounter to={stat.value} />
                 {stat.suffix && <span className="text-3xl">{stat.suffix}</span>}
               </div>
-              <p className={`text-xs font-semibold uppercase tracking-wider mt-1.5 ${
-                stat.highlight ? "text-primary" : "text-muted-foreground"
-              }`}>
+              <p
+                className={`text-xs font-semibold uppercase tracking-wider mt-1.5 ${
+                  stat.highlight ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
                 {stat.label}
               </p>
             </motion.div>
