@@ -86,13 +86,12 @@
   --radius: .5rem;
 
   /* ============================================================
-     PALETTE: Enterprise Navy · Electric Blue · Cyan
-     Inspired by: enterprise SaaS, modern AI products
-     Background → near-black navy   #050B16
-     Primary    → electric blue     #3B82F6  (217 91% 60%)
-     Secondary  → cyan              #06B6D4  (199 89% 48%)
-     Accent     → indigo            #6366F1  (239 84% 67%)
-     Muted text → slate             #7E93A7
+     PALETTE: SAQR Gold — extracted from logo
+     Background → near-black navy  #050B16
+     Primary    → warm gold        hsl(43 84% 48%)  ≈ #D4A318
+     Secondary  → dark amber       hsl(35 78% 42%)  ≈ #BC8210
+     Accent     → indigo           hsl(239 84% 67%) ≈ #6366F1
+     Muted text → slate            #7E93A7
   ============================================================ */
 
   --background: 222 47% 4%;         /* #050B16 near-black navy */
@@ -100,9 +99,9 @@
 
   --border: 218 32% 13%;
   --input: 218 32% 13%;
-  --ring: 217 91% 60%;
+  --ring: 43 84% 48%;
 
-  --card: 220 40% 7%;               /* #0A1224 card navy */
+  --card: 220 40% 7%;
   --card-foreground: 213 31% 95%;
   --card-border: 218 32% 13%;
 
@@ -110,19 +109,19 @@
   --popover-foreground: 213 31% 95%;
   --popover-border: 218 32% 13%;
 
-  --primary: 217 91% 60%;           /* #3B82F6 electric blue */
-  --primary-foreground: 0 0% 100%;
-  --primary-border: 217 91% 50%;
+  --primary: 43 84% 48%;            /* warm gold — logo color */
+  --primary-foreground: 220 40% 8%; /* dark navy on gold for contrast */
+  --primary-border: 43 84% 38%;
 
-  --secondary: 199 89% 48%;         /* #06B6D4 cyan */
-  --secondary-foreground: 0 0% 100%;
-  --secondary-border: 199 89% 38%;
+  --secondary: 35 78% 42%;          /* dark amber */
+  --secondary-foreground: 220 40% 8%;
+  --secondary-border: 35 78% 32%;
 
   --muted: 218 32% 11%;
-  --muted-foreground: 215 20% 52%;  /* #7E93A7 slate */
+  --muted-foreground: 215 20% 52%;
   --muted-border: 218 32% 15%;
 
-  --accent: 239 84% 67%;            /* #6366F1 indigo */
+  --accent: 239 84% 67%;            /* indigo — kept for visual contrast */
   --accent-foreground: 0 0% 100%;
   --accent-border: 239 84% 57%;
 
@@ -130,22 +129,21 @@
   --destructive-foreground: 0 0% 100%;
   --destructive-border: 0 62.8% 28%;
 
-  --chart-1: 217 91% 60%;
-  --chart-2: 199 89% 48%;
+  --chart-1: 43 84% 48%;
+  --chart-2: 35 78% 42%;
   --chart-3: 239 84% 67%;
   --chart-4: 160 50% 42%;
-  --chart-5: 340 60% 50%;
+  --chart-5: 28 88% 52%;
 
   --sidebar: 220 40% 7%;
   --sidebar-foreground: 213 31% 95%;
   --sidebar-border: 218 32% 13%;
-  --sidebar-primary: 217 91% 60%;
-  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-primary: 43 84% 48%;
+  --sidebar-primary-foreground: 220 40% 8%;
   --sidebar-accent: 218 32% 11%;
   --sidebar-accent-foreground: 213 31% 95%;
-  --sidebar-ring: 217 91% 60%;
+  --sidebar-ring: 43 84% 48%;
 
-  --opaque-button-border-intensity: -8;
   --elevate-1: rgba(255,255,255, .03);
   --elevate-2: rgba(255,255,255, .06);
   --button-outline: rgba(255,255,255, .07);
@@ -180,16 +178,16 @@ html[dir="rtl"] {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
-/* Blue → Cyan gradient text */
+/* Gold → Amber gradient text */
 .text-gradient {
   @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(135deg, hsl(217 91% 68%), hsl(199 89% 62%));
+  background-image: linear-gradient(135deg, hsl(43 90% 60%), hsl(35 85% 50%));
 }
 
-/* Subtle grid background pattern */
+/* Subtle gold-tinted grid background pattern */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(212, 163, 24, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 163, 24, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
 }

@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe, TerminalSquare } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n";
 import { Button } from "@/components/ui/button";
+import logoImg from "@assets/ChatGPT_Image_Apr_26,_2026,_01_49_42_AM_1782822582781.png";
 
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
@@ -44,7 +45,7 @@ export default function Navbar() {
       transition={{ duration: 0.28, ease: "easeInOut" }}
       className="fixed top-0 w-full z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(5, 11, 22, 0.90)" : "rgba(5, 11, 22, 0.60)",
+        background: scrolled ? "rgba(5, 11, 22, 0.92)" : "rgba(5, 11, 22, 0.65)",
         backdropFilter: "blur(14px)",
         WebkitBackdropFilter: "blur(14px)",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "1px solid transparent",
@@ -53,9 +54,15 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Brand */}
-          <a href="#home" className="flex items-center gap-2 shrink-0">
-            <TerminalSquare className="h-6 w-6 text-primary" />
+          {/* Brand — logo + wordmark */}
+          <a href="#home" className="flex items-center gap-2.5 shrink-0">
+            <div className="h-9 w-9 rounded-lg overflow-hidden">
+              <img
+                src={logoImg}
+                alt="SAQR Logo"
+                className="h-full w-full object-contain"
+              />
+            </div>
             <span className="font-bold text-lg tracking-widest text-gradient uppercase">SAQR</span>
           </a>
 
@@ -83,7 +90,7 @@ export default function Navbar() {
             <Button
               asChild
               size="sm"
-              className="rounded-full bg-primary hover:bg-primary/90 text-white text-sm px-5"
+              className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-5 font-semibold"
             >
               <a href="#contact">{t.nav.hireMe}</a>
             </Button>
@@ -131,7 +138,7 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="pt-3 border-t border-white/5">
-                <Button asChild className="w-full rounded-full bg-primary hover:bg-primary/90 text-white">
+                <Button asChild className="w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                   <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>{t.nav.hireMe}</a>
                 </Button>
               </div>

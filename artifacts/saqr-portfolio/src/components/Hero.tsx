@@ -23,10 +23,10 @@ export default function Hero() {
       {/* Grid pattern background */}
       <div className="absolute inset-0 bg-grid opacity-100 pointer-events-none" />
 
-      {/* Subtle glow orbs */}
+      {/* Glow orbs — gold tones */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-5%] end-[-10%] w-[55%] h-[55%] rounded-full bg-primary/8 blur-[100px]" />
-        <div className="absolute bottom-[-10%] start-[-5%] w-[40%] h-[45%] rounded-full bg-secondary/6 blur-[90px]" />
+        <div className="absolute top-[-5%] end-[-10%] w-[55%] h-[55%] rounded-full bg-primary/10 blur-[110px]" />
+        <div className="absolute bottom-[-10%] start-[-5%] w-[40%] h-[45%] rounded-full bg-secondary/8 blur-[90px]" />
         <div className="absolute top-[40%] end-[30%] w-[20%] h-[20%] rounded-full bg-accent/5 blur-[60px]" />
       </div>
 
@@ -42,7 +42,7 @@ export default function Hero() {
           >
             {/* Badge */}
             <div className="flex items-center gap-2 w-fit">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/25 bg-primary/8 text-primary text-xs font-semibold tracking-wide">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold tracking-wide">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 {t.hero.badge}
               </div>
@@ -89,7 +89,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3 mt-1">
               <Button
                 size="lg"
-                className="rounded-full bg-primary hover:bg-primary/90 text-white text-sm px-7 h-12 font-semibold shadow-[0_0_24px_rgba(59,130,246,0.3)]"
+                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-7 h-12 font-semibold shadow-[0_0_28px_rgba(212,163,24,0.35)]"
                 asChild
               >
                 <a href="#contact" className="flex items-center gap-2">
@@ -109,7 +109,7 @@ export default function Hero() {
 
             {/* Quick expertise strip */}
             <div className="flex flex-wrap gap-2 pt-2">
-              {["Security", "AI", "Automation", "Backend", "Education", "Consulting"].map((tag) => (
+              {["Python", "Automation", "Backend", "Education", "APIs", "Consulting"].map((tag) => (
                 <span
                   key={tag}
                   className="text-xs font-mono text-muted-foreground/60 border border-white/6 px-2.5 py-1 rounded"
@@ -128,12 +128,12 @@ export default function Hero() {
             className="relative flex justify-center items-center order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Glow behind image */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-secondary/8 to-accent/10 blur-2xl opacity-70" />
+              {/* Gold glow behind image */}
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/20 via-secondary/10 to-accent/8 blur-2xl opacity-70" />
 
               {/* Image frame */}
               <div
-                className="relative overflow-hidden rounded-2xl border border-white/8 shadow-2xl"
+                className="relative overflow-hidden rounded-2xl border border-primary/15 shadow-2xl"
                 style={{ width: "280px", aspectRatio: "3/4" }}
               >
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-background/50 via-transparent to-transparent pointer-events-none" />
@@ -143,7 +143,7 @@ export default function Hero() {
                   className="w-full h-full object-cover object-top"
                   loading="eager"
                   onError={(e) => {
-                    e.currentTarget.src = `https://ui-avatars.com/api/?name=IА&background=0A1224&color=3B82F6&size=512`;
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=SA&background=0A1224&color=D4A318&size=512`;
                   }}
                 />
               </div>
@@ -152,17 +152,17 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -7, 0] }}
                 transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                className="absolute -top-3 -end-4 glass-card px-3.5 py-2 rounded-xl border border-primary/20 text-xs font-mono text-primary"
+                className="absolute -top-3 -end-4 glass-card px-3.5 py-2 rounded-xl border border-primary/25 text-xs font-mono text-primary"
               >
-                Security · AI · Automation
+                Dev · Automation · Education
               </motion.div>
               <motion.div
                 animate={{ y: [0, 7, 0] }}
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.5 }}
-                className="absolute -bottom-3 -start-4 glass-card px-3.5 py-2 rounded-xl border border-secondary/20 text-xs font-mono text-secondary flex items-center gap-1.5"
+                className="absolute -bottom-3 -start-4 glass-card px-3.5 py-2 rounded-xl border border-secondary/25 text-xs font-mono text-secondary flex items-center gap-1.5"
               >
                 <ChevronRight className="h-3 w-3" />
-                50+ Projects Delivered
+                500+ Students Trained
               </motion.div>
             </div>
           </motion.div>
