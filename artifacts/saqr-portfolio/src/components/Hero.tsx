@@ -23,11 +23,10 @@ export default function Hero() {
       {/* Grid pattern background */}
       <div className="absolute inset-0 bg-grid opacity-100 pointer-events-none" />
 
-      {/* Glow orbs — gold tones */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-5%] end-[-10%] w-[55%] h-[55%] rounded-full bg-primary/10 blur-[110px]" />
-        <div className="absolute bottom-[-10%] start-[-5%] w-[40%] h-[45%] rounded-full bg-secondary/8 blur-[90px]" />
-        <div className="absolute top-[40%] end-[30%] w-[20%] h-[20%] rounded-full bg-accent/5 blur-[60px]" />
+      {/* Glow orbs — reduced blur for performance */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[-5%] end-[-10%] w-[50%] h-[50%] rounded-full bg-primary/8 blur-[60px]" />
+        <div className="absolute bottom-[-10%] start-[-5%] w-[38%] h-[40%] rounded-full bg-secondary/6 blur-[50px]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

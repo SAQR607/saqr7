@@ -85,17 +85,8 @@
   --app-font-mono: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
   --radius: .5rem;
 
-  /* ============================================================
-     PALETTE: SAQR Gold — extracted from logo
-     Background → near-black navy  #050B16
-     Primary    → warm gold        hsl(43 84% 48%)  ≈ #D4A318
-     Secondary  → dark amber       hsl(35 78% 42%)  ≈ #BC8210
-     Accent     → indigo           hsl(239 84% 67%) ≈ #6366F1
-     Muted text → slate            #7E93A7
-  ============================================================ */
-
-  --background: 222 47% 4%;         /* #050B16 near-black navy */
-  --foreground: 213 31% 95%;        /* #EDF2F9 clean white */
+  --background: 222 47% 4%;
+  --foreground: 213 31% 95%;
 
   --border: 218 32% 13%;
   --input: 218 32% 13%;
@@ -109,11 +100,11 @@
   --popover-foreground: 213 31% 95%;
   --popover-border: 218 32% 13%;
 
-  --primary: 43 84% 48%;            /* warm gold — logo color */
-  --primary-foreground: 220 40% 8%; /* dark navy on gold for contrast */
+  --primary: 43 84% 48%;
+  --primary-foreground: 220 40% 8%;
   --primary-border: 43 84% 38%;
 
-  --secondary: 35 78% 42%;          /* dark amber */
+  --secondary: 35 78% 42%;
   --secondary-foreground: 220 40% 8%;
   --secondary-border: 35 78% 32%;
 
@@ -121,7 +112,7 @@
   --muted-foreground: 215 20% 52%;
   --muted-border: 218 32% 15%;
 
-  --accent: 239 84% 67%;            /* indigo — kept for visual contrast */
+  --accent: 239 84% 67%;
   --accent-foreground: 0 0% 100%;
   --accent-border: 239 84% 57%;
 
@@ -143,11 +134,6 @@
   --sidebar-accent: 218 32% 11%;
   --sidebar-accent-foreground: 213 31% 95%;
   --sidebar-ring: 43 84% 48%;
-
-  --elevate-1: rgba(255,255,255, .03);
-  --elevate-2: rgba(255,255,255, .06);
-  --button-outline: rgba(255,255,255, .07);
-  --badge-outline: rgba(255,255,255, .05);
 }
 
 html[dir="rtl"] {
@@ -166,16 +152,23 @@ html[dir="rtl"] {
   html {
     scroll-behavior: smooth;
   }
+
+  /* Defer paint for off-screen sections — large performance win */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
 }
 
-/* Enterprise glass card */
+/*
+  glass-card: NO backdrop-filter (removed — very expensive GPU op on 20+ cards).
+  Use a solid semi-transparent background instead — same look, zero GPU cost.
+*/
 .glass-card {
-  background: rgba(10, 18, 36, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(8, 15, 30, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 /* Gold → Amber gradient text */
@@ -184,10 +177,10 @@ html[dir="rtl"] {
   background-image: linear-gradient(135deg, hsl(43 90% 60%), hsl(35 85% 50%));
 }
 
-/* Subtle gold-tinted grid background pattern */
+/* Lightweight gold-tinted grid — SVG data URI avoids layout-triggering JS */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(212, 163, 24, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 163, 24, 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(rgba(212, 163, 24, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 163, 24, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
